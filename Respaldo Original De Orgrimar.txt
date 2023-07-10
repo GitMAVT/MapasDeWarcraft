@@ -1,0 +1,131 @@
+Name			Code
+
+1 Tauren Chieftain	Otch
+2 Far Seer		Ofar
+3 Shadow Hunter		Oshd
+4 Blademaster		Obla
+
+412
+413
+421
+423
+431
+432
+
+elseif (roll <= 33) then
+        call SetHero( 1, 'Otch' )
+        call SetHero( 2, 'Ofar' )
+        call SetHero( 3, 'Oshd' )
+    
+    else
+
+Respaldo Original
+if (order == 1) then
+        set hero_id = heroid
+        if (heroid == 'Otch') then
+            set skills1[ 1] = 'AOae'
+            set skills1[ 2] = 'AOws'
+            set skills1[ 3] = 'AOae'
+            set skills1[ 4] = 'AOws'
+            set skills1[ 5] = 'AOae'
+            set skills1[ 6] = 'AOre'
+            set skills1[ 7] = 'AOws'
+            set skills1[ 8] = 'AOsh'
+            set skills1[ 9] = 'AOsh'
+            set skills1[10] = 'AOsh'
+        elseif (heroid == 'Oshd') then
+            set skills1[ 1] = 'AOhw'
+            set skills1[ 2] = 'AOhx'
+            set skills1[ 3] = 'AOhw'
+            set skills1[ 4] = 'AOhx'
+            set skills1[ 5] = 'AOhw'
+            set skills1[ 6] = 'AOhx'
+            set skills1[ 7] = 'AOvd'
+            set skills1[ 8] = 'AOsw'
+            set skills1[ 9] = 'AOsw'
+            set skills1[10] = 'AOsw'
+        elseif (heroid == 'Ofar') then
+            set skills1[ 1] = 'AOsf'
+            set skills1[ 2] = 'AOcl'
+            set skills1[ 3] = 'AOsf'
+            set skills1[ 4] = 'AOcl'
+            set skills1[ 5] = 'AOsf'
+            set skills1[ 6] = 'AOeq'
+            set skills1[ 7] = 'AOcl'
+            set skills1[ 8] = 'AOfs'
+            set skills1[ 9] = 'AOfs'
+            set skills1[10] = 'AOfs'
+        endif
+    elseif (order == 2) then
+        set hero_id2 = heroid
+        if (heroid == 'Otch') then
+            set skills2[ 1] = 'AOsh'
+            set skills2[ 2] = 'AOws'
+            set skills2[ 3] = 'AOae'
+            set skills2[ 4] = 'AOsh'
+            set skills2[ 5] = 'AOws'
+            set skills2[ 6] = 'AOre'
+            set skills2[ 7] = 'AOae'
+            set skills2[ 8] = 'AOsh'
+            set skills2[ 9] = 'AOws'
+            set skills2[10] = 'AOae'
+        elseif (heroid == 'Oshd') then
+            set skills2[ 1] = 'AOhw'
+            set skills2[ 2] = 'AOsw'
+            set skills2[ 3] = 'AOhw'
+            set skills2[ 4] = 'AOsw'
+            set skills2[ 5] = 'AOhw'
+            set skills2[ 6] = 'AOsw'
+            set skills2[ 7] = 'AOvd'
+            set skills2[ 8] = 'AOhx'
+            set skills2[ 9] = 'AOhx'
+            set skills2[10] = 'AOhx'
+        elseif (heroid == 'Ofar') then
+            set skills2[ 1] = 'AOcl'
+            set skills2[ 2] = 'AOfs'
+            set skills2[ 3] = 'AOcl'
+            set skills2[ 4] = 'AOfs'
+            set skills2[ 5] = 'AOcl'
+            set skills2[ 6] = 'AOeq'
+            set skills2[ 7] = 'AOfs'
+            set skills2[ 8] = 'AOsf'
+            set skills2[ 9] = 'AOsf'
+            set skills2[10] = 'AOsf'
+        endif
+    elseif (order == 3) then
+        set hero_id3 = heroid
+        if (heroid == 'Otch') then
+            set skills3[ 1] = 'AOsh'
+            set skills3[ 2] = 'AOws'
+            set skills3[ 3] = 'AOae'
+            set skills3[ 4] = 'AOsh'
+            set skills3[ 5] = 'AOws'
+            set skills3[ 6] = 'AOre'
+            set skills3[ 7] = 'AOae'
+            set skills3[ 8] = 'AOsh'
+            set skills3[ 9] = 'AOws'
+            set skills3[10] = 'AOae'
+        elseif (heroid == 'Oshd') then
+            set skills3[ 1] = 'AOhw'
+            set skills3[ 2] = 'AOhx'
+            set skills3[ 3] = 'AOsw'
+            set skills3[ 4] = 'AOhw'
+            set skills3[ 5] = 'AOhx'
+            set skills3[ 6] = 'AOvd'
+            set skills3[ 7] = 'AOsw'
+            set skills3[ 8] = 'AOhw'
+            set skills3[ 9] = 'AOhx'
+            set skills3[10] = 'AOsw'
+        elseif (heroid == 'Ofar') then
+            set skills3[ 1] = 'AOcl'
+            set skills3[ 2] = 'AOfs'
+            set skills3[ 3] = 'AOsf'
+            set skills3[ 4] = 'AOcl'
+            set skills3[ 5] = 'AOfs'
+            set skills3[ 6] = 'AOeq'
+            set skills3[ 7] = 'AOsf'
+            set skills3[ 8] = 'AOcl'
+            set skills3[ 9] = 'AOfs'
+            set skills3[10] = 'AOsf'
+        endif
+    endif
