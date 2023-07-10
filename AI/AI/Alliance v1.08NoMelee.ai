@@ -1004,11 +1004,11 @@ function HarvestPriorities takes nothing returns nothing
     local integer allGold = GetUnitCountDone('hu01')
     local integer allWood = GetUnitCountDone('hu01')
     local integer numWorkers
-    set numWorkers = 5
+    set numWorkers = 6
     call HarvestGold( mine + 0, numWorkers )
-    set numWorkers = 5
+    set numWorkers = 6
     call HarvestGold( mine + 1, numWorkers )
-    set numWorkers = 5
+    set numWorkers = 6
     call HarvestGold( mine + 2, numWorkers )
     set numWorkers = 35
     call HarvestWood( mine, numWorkers )

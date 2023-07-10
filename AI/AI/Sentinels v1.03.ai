@@ -128,8 +128,8 @@ endfunction
 
 //===========================================================================
 function InitOptions takes nothing returns nothing
-    call SetCampaignAI(  )  
-    call SetDefendPlayer( false )
+    call SetMeleeAI(  )  
+    call SetDefendPlayer( true )
     call SetRandomPaths( true )
     call SetTargetHeroes( true )
     call SetPeonsRepair( true )
@@ -137,7 +137,7 @@ function InitOptions takes nothing returns nothing
     call SetHeroesBuyItems( true )
     call SetUnitsFlee( true )
     call SetGroupsFlee( true )
-    call SetWatchMegaTargets( true )
+    call SetWatchMegaTargets( false )
     call SetIgnoreInjured( true )
     call SetHeroesTakeItems( true )
     call SetSlowChopping( false )
@@ -1057,105 +1057,61 @@ function LaunchAttack takes nothing returns nothing
 
     //STANDARD AND DEFENDER
     //----------------------------------------------------------------------------------------------------
-    if (Comport21 <= 50) then
-        //Target Priority #1
-        // if (RushCom2 <= 50) then
-        //     if (gCond_RushForces) then
-        //         if (target == null) then
-        //             set target = GetMegaTarget()
-        //         endif
-        //     endif
-        // endif
-
-        // Target Priority #2
-        if (gCond_NeedExpansionRequiere) then
-            if (target == null) then
-                set target = GetExpansionFoe()
-                if (target != null) then
-                    set take_exp = false
-                endif
-            endif
-        endif
-
-        // Target Priority #3
-        if (gCond_AtacarAEnemigo) then
-            if (target == null) then
-                set target = GetAllianceTarget()
-                if (target != null) then
-                    set setAlly = false
-                endif
-            endif
-        
-
-            // Target Priority #4
-            if (target == null) then
-                set target = GetMegaTarget()
-            endif
-
-        
-            // Target Priority #5
-            if (target == null) then
-                set target = GetEnemyExpansion()
-                if (target == null) then
-                    call StartGetEnemyBase(  )
-                    loop
-                        exitwhen (not WaitGetEnemyBase())
-                        call SuicideSleep( 1 )
-                    endloop
-                    set target = GetEnemyBase()
-                endif
-            endif
-
-            // Target Priority #6
-            if (target == null) then
-                set target = GetEnemyExpansion()
-            endif
-        endif
-
-        // Target Priority #7
-        if (gCond_Farmeo_avanzado) then
-            if (target == null) then
-                set target = GetCreepCamp( 21, 100, true )
-            endif
-        endif
-
-        // Target Priority #8
-        if (gCond_Farmeo_Mediano) then
-            if (target == null) then
-                set target = GetCreepCamp( 11, 20, true )
-            endif
-        endif
-
-        // Target Priority #9
+    // Target Priority #1
+    if (gCond_NeedExpansionRequiere) then
         if (target == null) then
-            set target = GetCreepCamp( 0, 10, false )
-        endif
-        //RUSH
-        //----------------------------------------------------------------------------------------------------
-    else   
-        
-        // Target Priority #1
-        if (gCond_NeedExpansionRequiere) then
-            if (target == null) then
-                set target = GetExpansionFoe()
-                if (target != null) then
-                    set take_exp = false
-                endif
+            set target = GetExpansionFoe()
+            if (target != null) then
+                set take_exp = false
             endif
         endif
-        
-        //Target Priority #2
+    endif
+    
+    //Target Priority #2
+    if (target == null) then
+        set target = GetAllianceTarget()
+        if (target != null) then
+            set setAlly = false
+        endif
+    endif
+
+    if (target == null) then
+        set target = GetMegaTarget()
+    endif
+
+    if (target == null) then
+        set target = GetEnemyExpansion()
+        if (target == null) then
+            call StartGetEnemyBase(  )
+            loop
+                exitwhen (not WaitGetEnemyBase())
+                call SuicideSleep( 1 )
+            endloop
+            set target = GetEnemyBase()
+        endif
+    endif
+
+    if (target == null) then
+        set target = GetEnemyExpansion()
+    endif
+
+    // Target Priority #3
+    if (gCond_AtacarAEnemigo) then
         if (target == null) then
             set target = GetAllianceTarget()
             if (target != null) then
                 set setAlly = false
             endif
         endif
+    
 
+        // Target Priority #4
         if (target == null) then
             set target = GetMegaTarget()
         endif
 
+    
+        // Target Priority #5
         if (target == null) then
             set target = GetEnemyExpansion()
             if (target == null) then
@@ -1168,65 +1124,31 @@ function LaunchAttack takes nothing returns nothing
             endif
         endif
 
+        // Target Priority #6
         if (target == null) then
             set target = GetEnemyExpansion()
         endif
-
-        // Target Priority #3
-        if (gCond_AtacarAEnemigo) then
-            if (target == null) then
-                set target = GetAllianceTarget()
-                if (target != null) then
-                    set setAlly = false
-                endif
-            endif
-        
-
-            // Target Priority #4
-            if (target == null) then
-                set target = GetMegaTarget()
-            endif
-
-        
-            // Target Priority #5
-            if (target == null) then
-                set target = GetEnemyExpansion()
-                if (target == null) then
-                    call StartGetEnemyBase(  )
-                    loop
-                        exitwhen (not WaitGetEnemyBase())
-                        call SuicideSleep( 1 )
-                    endloop
-                    set target = GetEnemyBase()
-                endif
-            endif
-
-            // Target Priority #6
-            if (target == null) then
-                set target = GetEnemyExpansion()
-            endif
-        endif
-
-        // Target Priority #7
-        if (gCond_Farmeo_avanzado) then
-            if (target == null) then
-                set target = GetCreepCamp( 21, 100, true )
-            endif
-        endif
-
-        // Target Priority #8
-        if (gCond_Farmeo_Mediano) then
-            if (target == null) then
-                set target = GetCreepCamp( 11, 20, true )
-            endif
-        endif
-
-        // Target Priority #9
-        // if (target == null) then
-        //     set target = GetCreepCamp( 0, 10, false )
-        // endif
-        
     endif
+
+    // Target Priority #7
+    if (gCond_Farmeo_avanzado) then
+        if (target == null) then
+            set target = GetCreepCamp( 21, 100, true )
+        endif
+    endif
+
+    // Target Priority #8
+    if (gCond_Farmeo_Mediano) then
+        if (target == null) then
+            set target = GetCreepCamp( 11, 20, true )
+        endif
+    endif
+
+    // Target Priority #9
+    // if (target == null) then
+    //     set target = GetCreepCamp( 0, 10, false )
+    // endif
+        
     // Attack the target and increment attack wave
     if (target != null) then
         call AttackTarget( target, setAlly )

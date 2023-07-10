@@ -130,8 +130,8 @@ endfunction
 
 //===========================================================================
 function InitOptions takes nothing returns nothing
-    call SetMeleeAI(  )  
-    call SetDefendPlayer( true )
+    call SetCampaignAI(  )  
+    call SetDefendPlayer( false )
     call SetRandomPaths( true )
     call SetTargetHeroes( true )
     call SetPeonsRepair( true )
@@ -139,7 +139,7 @@ function InitOptions takes nothing returns nothing
     call SetHeroesBuyItems( true )
     call SetUnitsFlee( true )
     call SetGroupsFlee( true )
-    call SetWatchMegaTargets( false )
+    call SetWatchMegaTargets( true )
     call SetIgnoreInjured( true )
     call SetHeroesTakeItems( true )
     call SetSlowChopping( false )
